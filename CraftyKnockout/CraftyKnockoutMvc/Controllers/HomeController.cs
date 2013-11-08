@@ -15,14 +15,17 @@ namespace CraftyKnockoutMvc.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Title = "About Crafty Knockout";
+            ViewBag.Message = "Crafty Knockout is an ASP.NET application created to facilite a presentation about KnockuutJS";
+            ViewBag.Abstract = "A look into crafting web apps with KnockoutJS and ASP.NET MVC. Discussing what knockout brings to the toolbax and when to use it.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Title = "Contact";
+            ViewBag.Message = "Contact page.";
 
             return View();
         }
