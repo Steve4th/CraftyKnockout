@@ -1,0 +1,1 @@
+Resources and code for the Crafty Coders presenation about KnockoyJS
