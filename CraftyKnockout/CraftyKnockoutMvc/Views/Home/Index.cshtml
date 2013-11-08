@@ -1,31 +1,39 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <h1>Crafty Knockout</h1>
+    <p class="lead">Crafty Knockout is an ASP.NET application created to facilitate a presentation about KnockoutJS</p>
+    <p>@ViewBag.Abstract</p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Getting started with KnockoutJS</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            An introduction to the KnockoutJS basics. A reminder for those familier and an introduction for the initated.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p>
+            @Html.ActionLink("Goto Part I >>", "Home", "GettingStarted", null, new { @class = "btn btn-default" })
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Embedding in a MVC application</h2>
+        <p>
+            KnockoutJS can be a very usfull way to extend the functgionality of an MVC web application. It allows you to move
+            towards a more interactive UI without the complexity and rethinking that a full SPA requires. In this section we will explore some
+            basic technics to integrate KnockoutJS within MVC.
+        </p>
+        <p>
+            @Html.ActionLink("Goto Part II >>", "Home", "IntegrationWithMvc", null, new { @class = "btn btn-default" })
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Why KnockoutJS</h2>
+        <p>As with all *JS libraries there are competitors, advantages and disadvantages; this section will discuss some of these.</p>
+        <p>
+            @Html.ActionLink("Goto Part III >>", "Home", "Analysis", null, new { @class = "btn btn-default" })
+        </p>
     </div>
 </div>
