@@ -21,6 +21,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Part I", "Index", "GettingStarted")</li>
+                    <li>@Html.ActionLink("Part II", "Index", "IntegrationWithMvc")</li>
+                    <li>@Html.ActionLink("Part III", "Index", "Analysis")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -31,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Crafty Knockout by Steve Forth</p>
+            <p>&copy; @DateTime.Now.Year - Crafty Knockout by Steve Forth  - @typeof(CraftyKnockoutMvc.MvcApplication).Assembly.GetName().Version</p>
         </footer>
     </div>
 
