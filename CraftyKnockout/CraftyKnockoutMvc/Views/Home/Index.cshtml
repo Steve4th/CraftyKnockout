@@ -1,8 +1,4 @@
-﻿@{
-
-}
-
-<div class="jumbotron">
+﻿<div class="jumbotron">
     <h1>Crafty Knockout</h1>
     <p class="lead">Crafty Knockout is an ASP.NET application created to facilitate a presentation about KnockoutJS</p>
     <p>@ViewBag.Abstract</p>
@@ -12,28 +8,28 @@
     <div class="col-md-4">
         <h2>Getting started with KnockoutJS</h2>
         <p>
-            An introduction to the KnockoutJS basics. A reminder for those familier and an introduction for the initated.
+            An introduction to the KnockoutJS basics. A reminder for those familiar and an introduction for the uninitiated.
         </p>
         <p>
-            @Html.ActionLink("Goto Part I >>", "Home", "GettingStarted", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Goto Part I >>", "Index", "GettingStarted", null, new { @class = "btn btn-default" })
         </p>
     </div>
     <div class="col-md-4">
         <h2>Embedding in a MVC application</h2>
         <p>
-            KnockoutJS can be a very usfull way to extend the functgionality of an MVC web application. It allows you to move
-            towards a more interactive UI without the complexity and rethinking that a full SPA requires. In this section we will explore some
-            basic technics to integrate KnockoutJS within MVC.
+            KnockoutJS can be a very usfull way to extend the functionality of an MVC web application.
+            It allows you to move towards a more interactive UI without the complexity and rethinking that a full SPA requires.
+            In this section we will explore some basic technics to integrate KnockoutJS within MVC.
         </p>
         <p>
-            @Html.ActionLink("Goto Part II >>", "Home", "IntegrationWithMvc", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Goto Part II >>", "Index", "IntegrationWithMvc", null, new { @class = "btn btn-default" })
         </p>
     </div>
     <div class="col-md-4">
         <h2>Why KnockoutJS</h2>
         <p>As with all *JS libraries there are competitors, advantages and disadvantages; this section will discuss some of these.</p>
         <p>
-            @Html.ActionLink("Goto Part III >>", "Home", "Analysis", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Goto Part III >>", "Index", "Analysis", null, new { @class = "btn btn-default" })
         </p>
     </div>
 </div>
