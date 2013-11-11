@@ -11,16 +11,19 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <h1>
-                    <a href="@Url.Action("Index", "Home")>Crafty</a>
-                    <a href="@Url.Action("Index", "Home") class="logo_colour">Knockout</a>
-                </h1>
-            </div>
+                </button>*@
+                <div id="logo_text">
+                    <h1 class=" title">
+                        <a href="@Url.Action("Index", "Home")">
+                            crafty<span class="logo_colour">Knockout</span>
+                        </a>
+                    </h1>
+                </div>
+                </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>

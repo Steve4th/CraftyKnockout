@@ -27,9 +27,24 @@ a {
     color: rgb(50, 47, 47);
 }
 
+
+#logo_text h1 {
+    font: normal 'News Cycle', arial, sans-serif;
+    /*border-bottom: 0;
+    margin: 0;*/
+    text-transform: none;
+    text-decoration: none;
+    font-weight:lighter;
+}
+
+#logo_text h1 a {
+    color: white;
+}
+
 #logo_text h1 a .logo_colour {
     color: #f16529;
 }
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
