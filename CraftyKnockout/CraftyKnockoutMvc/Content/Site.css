@@ -1,4 +1,5 @@
 ﻿body {
+
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -7,6 +8,27 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.footer-container, .main aside {
+    border-top: 20px solid rgb(50, 47, 47);
+    background: #f16529;
+    width: 100%;
+}
+
+    .footer-container footer {
+        color: white;
+        padding: 20px 15px, 5px;
+        width: 1170px;
+    }
+
+
+a {
+    color: rgb(50, 47, 47);
+}
+
+#logo_text h1 a .logo_colour {
+    color: #f16529;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
