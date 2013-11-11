@@ -21,5 +21,20 @@ namespace CraftyKnockoutMvc.Controllers
         {
             return View();
         }
+
+        public ActionResult Observable()
+        {
+            return View();
+        }
+
+        public ActionResult ObservableArray()
+        {
+            return View();
+        }
+
+        public ActionResult Computed()
+        {
+            return View();
+        }
 	}
 }

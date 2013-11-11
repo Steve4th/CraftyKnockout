@@ -184,6 +184,7 @@
     <Content Include="Views\GettingStarted\HelloCraftyCoders.cshtml" />
     <Content Include="Views\Analysis\Index.cshtml" />
     <Content Include="Views\IntegrationWithMvc\Index.cshtml" />
+    <Content Include="Views\GettingStarted\Observable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
