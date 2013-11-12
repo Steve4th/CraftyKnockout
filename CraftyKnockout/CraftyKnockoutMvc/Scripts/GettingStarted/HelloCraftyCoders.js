@@ -1,10 +1,11 @@
 ﻿function HelloViewModel() {
+    var self = this;
 
-    viewModelMessage = "Hello Crafty Coders";
+    self.viewModelMessage = "Hello Crafty Coders";
 
-    viewModelButton = function () {
+    self.viewModelButton = function () {
         alert('Hello Crafty Coders');
-    }
+    };
 }
 
 var viewModel = new HelloViewModel();
