@@ -1,34 +1,33 @@
-﻿<h2>Observables II</h2>
+﻿<h2>Observables II - Computed</h2>
 <div class="row">
     <div class="col-md-4">
-        <h3>Computed</h3>
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Example Calculator</h3>
             </div>
-            <div class="panel-body"></div>
+            <div class="panel-body">
             Net Amount:
             <div class="input-group">
                 <span class="input-group-addon">£</span>
-                <input class="form-control" data-bind="value: NetPrice" />
+                <input class="form-control rightalign" data-bind="value: NetPrice, valueUpdate: 'keyup'" />
             </div>
 
             Vat Rate:
             <div class="input-group">
                 <span class="input-group-addon">%</span>
-                <input class="form-control" data-bind="value: VatRate" />
+                <input class="form-control rightalign" data-bind="value: VatRate, valueUpdate: 'keyup'" />
             </div>
 
             Vat Amount:
             <div class="input-group">
                 <span class="input-group-addon">£</span>
-                <input class="form-control" data-bind="value: VatAmount" />
+                <input class="form-control rightalign" data-bind="value: VatAmount" readonly />
             </div>
 
             Gross Amount:
             <div class="input-group">
                 <span class="input-group-addon">£</span>
-                <input class="form-control" data-bind="value: GrossPrice" />
+                <input class="form-control rightalign" data-bind="value: GrossPrice" readonly />
             </div>
         </div>
     </div>

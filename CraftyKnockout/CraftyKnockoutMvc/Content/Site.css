@@ -29,7 +29,9 @@ a {
     color: rgb(50, 47, 47);
 }
 
-
+.rightalign{
+    text-align: right;
+}
 
 #logo_text h1 {
     font: normal 'News Cycle', arial, sans-serif;
