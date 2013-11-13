@@ -8,5 +8,7 @@
     };
 }
 
-var viewModel = new HelloViewModel();
-ko.applyBindings(viewModel);
+$('#ApplyBindings').click(function () {
+    var viewModel = new HelloViewModel();
+    ko.applyBindings(viewModel);
+});

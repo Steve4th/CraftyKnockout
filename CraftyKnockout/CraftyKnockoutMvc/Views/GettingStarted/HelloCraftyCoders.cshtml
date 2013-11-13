@@ -1,8 +1,12 @@
 ﻿<h2>Simple Binding</h2>
 
 <p>Binding is how we join the View to the View Model. Knockout provides a simple binding syntax using a html attribute.</p>
+<p>
+    <a class="btn btn-default" id="ApplyBindings">Apply Bindings >></a>
+</p>
 
-<div class="row">
+
+ <div class="row">
     <div class="col-md-4">
         <p>Property Binding</p>
         <span data-bind="text: viewModelMessage"></span>
@@ -10,13 +14,13 @@
     <div class="col-md-4">
         <p>Event Binding</p>
         <a data-bind="click: viewModelButton" class="btn btn-default">Click >></a>
-
     </div>
     <div class="col-md-4">
         <p>Multiple Bindings</p>
         <a data-bind="click: viewModelButton, text:viewModelMessage.toUpperCase()"></a>
     </div>
 </div>
+
 
 @section Scripts
 {
