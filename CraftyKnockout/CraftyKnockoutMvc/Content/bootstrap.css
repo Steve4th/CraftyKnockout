@@ -5775,13 +5775,13 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-primary {
-  border-color: #428bca;
+  border-color: #f16529;
 }
 
 .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #428bca;
-  border-color: #428bca;
+  background-color: #f16529;
+  border-color: #f16529;
 }
 
 .panel-primary > .panel-heading + .panel-collapse .panel-body {

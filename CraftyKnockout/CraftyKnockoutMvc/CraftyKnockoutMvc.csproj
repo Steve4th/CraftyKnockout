@@ -152,6 +152,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\GettingStarted\Computed.js" />
     <Content Include="Scripts\GettingStarted\HelloCraftyCoders.js" />
     <Content Include="Scripts\GettingStarted\Observable.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
