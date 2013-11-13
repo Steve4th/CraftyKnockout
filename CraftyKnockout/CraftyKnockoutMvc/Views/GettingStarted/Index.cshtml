@@ -2,25 +2,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@*<h3>@ViewBag.Message</h3>*@
 
+<h3>What is KnockoutJS</h3>
 <p>
-    1. What is KnockoutJS. A JavaScript library that provides an MVVM pattern for use within your HTML user interface.
+    KnockoutJS is a JavaScript library that provides an MVVM pattern for use within your HTML user interface.
     It is intended to make it easier to create a rich user experiance while simplifying the JavaScript you need to write.
     Knockout handles the update of the DOM for you once you have declared the bindings.
+
+    Knockout is designed to compliment your existing JavaScript frameworks such as JQuery. It does not have depoendancies on or prescribe the use of any JavaScript library. 
+
+    Knockout is purley a client side library and can be used with any backend technology.
 </p>
+
+<h3>Get KnockoutJS</h3>
 <p>
-    2. Get KnockoutJS. Either get it directly from <a href="http://knockoutjs.com/">http://knockoutjs.com/</a>
-    or use NuGet <a href="http://www.nuget.org/packages/knockoutjs">http://www.nuget.org/packages/knockoutjs</a>
-    Knockout is now at version 3 (at time of going to press Nov 2013).
+    <div>
+        You can get it directly from <a href="http://knockoutjs.com/">knockoutjs.com/</a>. It is distributed by various CDN's for live use.
+        For ASP.NET applications it is available as a package from NuGet <a href="http://www.nuget.org/packages/knockoutjs">nuget.org/packages/knockoutjs</a>
+        <br />
+        Knockout is at version 3 (at time of going to press in Nov 2013).
+    </div>
 </p>
-<p>
-    3. Hello Crafty Coders Example @Html.ActionLink(" >> ", "HelloCraftyCoders", null, new { @class = "btn btn-default" })
-</p>
-<p>
-    4. Observables @Html.ActionLink(" >> ", "Observable", null, new { @class = "btn btn-default" })
-</p>
-<p>
-    5. Computed @Html.ActionLink(" >> ", "Computed", null, new { @class = "btn btn-default" })
-</p>
+
+<h3>Using Knockout</h3>
+<div class="list-group">
+    <a href="@Url.Action("HelloCraftyCoders")" class="list-group-item">
+        <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span> Hello Crafty Coders Example</h4>
+        <p class="list-group-item-text">A simple example to introduce binding</p>
+    </a>
+
+    <a href="@Url.Action("Observable")" class="list-group-item">
+        <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span> Observables I - Observable</h4>
+        <p class="list-group-item-text">An example using ko.observable properties.</p>
+
+    </a>
+
+    <a href="@Url.Action("Computed")" class="list-group-item">
+        <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span> Observables II - Computed</h4>
+        <p class="list-group-item-text">An example using ko.computed properties.</p>
+    </a>
+
+    <a href="@Url.Action("ObservableArray")" class="list-group-item">
+        <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span> Observables III - Observable Array</h4>
+        <p class="list-group-item-text">An example using ko.observableArray and templating.</p>
+    </a>
+</div>
 
