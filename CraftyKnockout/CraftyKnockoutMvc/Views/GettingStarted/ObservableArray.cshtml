@@ -1,0 +1,73 @@
+﻿<h2>Observables III - ObservableArray</h2>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Crafty Coders Hall of Fame</h3>
+            </div>
+            <div class="panel-body">
+                <a class="btn btn-default" data-bind="click: AddCoder">Add Coder</a>
+                <a class="btn btn-default" data-bind="click: SortCoders">Sort Coders</a>
+                
+                <ul class="list-group" data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }"></ul>
+
+                <script type="text/html" id="coderrowtemplate">
+                    <li class="list-group-item">
+                        <span class="badge" data-bind="text: score">14</span>
+                        Name: <span data-bind="text: coderName"></span>
+                        <a class="btn" data-bind="click: $root.RemoveCoder">Delete</a>
+                    </li>
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Editing <span data-bind="text: currentRecord.coderName"></span></h3>
+                </div>
+                <div class="panel-body">
+
+                    Coder Name
+                    <div class="input-group">
+                        <span class="input-group-addon">£</span>
+                        <input class="form-control rightalign" data-bind="value: currentRecord.coderName" />
+                    </div>
+
+                    Score:
+                    <div class="input-group">
+                        <span class="input-group-addon">%</span>
+                        <input class="form-control rightalign" data-bind="value: currentRecord.score" />
+                    </div>
+
+                    Famous For:
+                    <div class="input-group">
+                        <span class="input-group-addon">%</span>
+                        <input class="form-control rightalign" data-bind="value: currentRecord.famousFor" />
+                    </div>
+
+                    Last Presentation Date:
+                    <div class="input-group">
+                        <input class="form-control rightalign" data-bind="value: currentRecord.presentationDate" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-md-4">
+            <div class="notes">
+                notes on observable arrays and templating
+                An observableArray tracks which objects are in the array, not the state of those objects!
+            </div>
+        </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/knockout-3.0.0.js"></script>
+    <script src="~/Scripts/GettingStarted/ObservableArray.js"></script>
+}
