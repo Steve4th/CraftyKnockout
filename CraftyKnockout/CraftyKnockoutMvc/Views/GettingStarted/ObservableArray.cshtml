@@ -9,16 +9,22 @@
                 <h3 class="panel-title">Crafty Coders Hall of Fame</h3>
             </div>
             <div class="panel-body">
-                <a class="btn btn-default" data-bind="click: AddCoder">Add Coder</a>
-                <a class="btn btn-default" data-bind="click: SortCoders">Sort Coders</a>
+                <button type="button" class="btn btn-default" data-bind="click: AddCoder">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                <button type="button" class="btn btn-default" data-bind="click: SortCoders">
+                    <span class="glyphicon glyphicon-sort"></span>
+                </button>
                 
                 <ul class="list-group" data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }"></ul>
 
                 <script type="text/html" id="coderrowtemplate">
                     <li class="list-group-item">
                         <span class="badge" data-bind="text: score">14</span>
-                        Name: <span data-bind="text: coderName"></span>
-                        <a class="btn" data-bind="click: $root.RemoveCoder">Delete</a>
+                        <span data-bind="text: coderName"></span>
+                        <button type="button" class="btn btn-sm" data-bind="click: $root.RemoveCoder">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
                     </li>
                 </script>
 
