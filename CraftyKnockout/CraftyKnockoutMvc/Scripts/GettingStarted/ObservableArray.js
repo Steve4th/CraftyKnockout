@@ -15,7 +15,7 @@ function HallOfFrameViewModel() {
     self.AddCoder = function () {
         var coder = new CoderProfile();
         self.FamousCoders.push(coder);
-        //self.currentRecord(coder);
+        self.currentRecord(coder);
     };
 
     self.RemoveCoder = function(record) {
@@ -35,12 +35,4 @@ function HallOfFrameViewModel() {
 
 
 var viewModel = new HallOfFrameViewModel();
-
-//push an example record into the hall of fame model
-//var firstCoder = new CoderProfile();
-//firstCoder.coderName('Jon Skeet');
-//firstCoder.score(10);
-//firstCoder.famousFor('Stack overflow answers');
-//viewModel.FamousCoders().push(firstCoder);
-
 ko.applyBindings(viewModel);
