@@ -12,8 +12,8 @@ namespace CraftyKnockoutMvc.Controllers
         // GET: /Analysis/
         public ActionResult Index()
         {
-            ViewBag.Title = "Part II - Getting started with KnockoutJS";
-            ViewBag.Message = "KnockoutJS can be a very useful way to extend the functionality of an MVC web application. In this part we will explore some basic techniques to integrate KnockoutJS within an MVC.";
+            ViewBag.Title = "Part III - Why use KnockoutJS?";
+            ViewBag.Message = "As with all *JS libraries there are competitors, advantages and disadvantages; this section will discuss some of these.";
 
             return View();
         }
