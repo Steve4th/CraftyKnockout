@@ -3,6 +3,7 @@
     score = ko.observable(0);
     famousFor = ko.observable('Enter your claim to fame');
     presentationDate = ko.observable(Date.now());
+    currentRecord = ko.observable(false);
 };
 
 function HallOfFrameViewModel() {
@@ -10,7 +11,7 @@ function HallOfFrameViewModel() {
 
     self.FamousCoders = ko.observableArray([]);
 
-    self.currentRecord = ko.observable(new CoderProfile());
+    self.currentRecord = ko.observable();
 
     self.AddCoder = function () {
         var coder = new CoderProfile();
@@ -22,7 +23,8 @@ function HallOfFrameViewModel() {
         self.FamousCoders.remove(record);
     };
 
-    self.EditCoder = function(record) {
+    self.EditCoder = function (record) {
+        record.currentRecord(true);
         self.currentRecord(record);
     };
 
