@@ -1,7 +1,5 @@
 ﻿<h2>Observables III - ObservableArray</h2>
 
-
-
 <div class="row">
     <div class="col-md-4">
         <div class="panel panel-primary">
@@ -23,65 +21,56 @@
 
                 <!-- Knockout Template -->
                 <script type="text/html" id="coderrowtemplate">
+
                     <!-- the CSS binding provides the ability to determine css classes based on the view model-->
-                    <a href="#" data-bind="css: {'list-group-item': true, active: currentRecord }, click: $root.EditCoder">
+                    <a href="#" data-bind="css: {'list-group-item': true }">
 
                         <span class="badge" data-bind="text: score"></span>
                         <h4 class="list-group-item-heading" data-bind="text: coderName"></h4>
                         <p class="list-group-item-text" data-bind="text:famousFor"></p>
+                        <span data-bind="text:$index"></span>
                         <div class="rightalign">
                             <!-- NB. Use the $root to get to the root of the view model, without it the template will think the method is on the current record-->
-                            <button type="button" class="btn btn-sm" data-bind="click: $root.RemoveCoder">
+                            <div class="btn btn-sm" data-bind="click: $root.RemoveCoder">
                                 <span class="glyphicon glyphicon-trash right"></span>
-                            </button>
-                            @*<button type="button" class="btn btn-sm" data-bind="click: $root.EditCoder">
-                                    <span class="glyphicon glyphicon-book"></span>
-                                </button>*@
+                            </div>
+                            <div class="btn btn-sm" data-bind="click: $root.EditCoder">
+                                <span class="glyphicon glyphicon-book"></span>
+                            </div>
                         </div>
                     </a>
+
                 </script>
 
             </div>
         </div>
     </div>
 
-
-
-
-
-
     <div class="col-md-4">
         <div>
-            <div class="panel panel-primary">
+            <div class="panel panel-primary" data-bind="with: EditableRecord ">
+
                 <div class="panel-heading">
-                    <h3 class="panel-title">Editing <span data-bind="text: currentRecord.coderName"></span></h3>
+                    <h3 class="panel-title">Editing <span data-bind="text: coderName"></span></h3>
                 </div>
 
                 <div class="panel-body">
 
-                    <ul class="list-group" data-bind="template: { name: 'coderedittemplate', data: currentRecord }"></ul>
+                    Coder Name
+                    <div class="input-group">
+                        <input class="form-control" data-bind="value: coderName" />
+                    </div>
 
-                    <script type="text/html" id="coderedittemplate">
-                        Coder Name
-                        <div class="input-group">
-                            <input class="form-control" data-bind="value: coderName" />
-                        </div>
+                    Score:
+                    <div class="input-group">
+                        <input class="form-control rightalign" data-bind="value: score" type="number" />
+                    </div>
 
-                        Score:
-                        <div class="input-group">
-                            <input class="form-control rightalign" data-bind="value: score" />
-                        </div>
+                    Famous For:
+                    <div class="input-group">
+                        <textarea class="form-control" data-bind="value: famousFor"></textarea>
+                    </div>
 
-                        Famous For:
-                        <div class="input-group">
-                            <input class="form-control" data-bind="value: famousFor" />
-                        </div>
-
-                        Last Presentation Date:
-                        <div class="input-group">
-                            <input class="form-control" data-bind="value: presentationDate" />
-                        </div>
-                    </script>
                 </div>
             </div>
         </div>
