@@ -6,8 +6,6 @@ namespace CraftyKnockoutMvc.Controllers
 {
     public class IntegrationWithMvcController : Controller
     {
-        //
-        // GET: /IntegrationWithMvc/
         public ActionResult Index()
         {
             ViewBag.Title = "Part II - Getting started with KnockoutJS";
@@ -17,9 +15,32 @@ namespace CraftyKnockoutMvc.Controllers
 
         public ActionResult HallOfFame()
         {
-            var model = new List<FamousCoder>();
+            var model = new HallOfFameModel();
 
-            model.Add(new FamousCoder() { CoderName = "Ian Russel", FameScore = 10, FamousFor = "Dependency Injection talks and doing stuff with F#" });
+            var coder = new FamousCoder()
+            {
+                CoderName = "Jon Skeet",
+                FameScore = 20,
+                FamousFor = "Stack overflow"
+            };
+            
+            var coder2 = new FamousCoder()
+            {
+                CoderName = "Douglas Crockford",
+                FameScore = 10,
+                FamousFor = "JavaScript"
+            };
+
+            var coder3 = new FamousCoder()
+            {
+                CoderName = "Scott Guthrie",
+                FameScore = 25,
+                FamousFor = "Red Shirt"
+            };
+
+            model.FamousCoders.Add(coder);
+            model.FamousCoders.Add(coder2);
+            model.FamousCoders.Add(coder3);
 
             return View(model);
         }

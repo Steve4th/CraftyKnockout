@@ -1,13 +1,14 @@
-﻿@model IList<CraftyKnockoutMvc.Models.FamousCoder>
+﻿@model CraftyKnockoutMvc.Models.HallOfFameModel
 @{
     ViewBag.Title = "HallOfFame";
 }
 
 <!-- Add a hidden field with the list in JSON form. Knockout can then use this to seed the view model-->
-@Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model)))
+@Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model.FamousCoders)))
 
 
 <h2>Hall Of Fame</h2>
+<span data-bind="text: Debug">bob</span>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
@@ -40,8 +41,7 @@
     </div>
 </div>
  
-@section Scripts
-{
+@section Scripts {
     @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/Scripts/IntegrationWithMvc/HallOfFame.js")
 }
