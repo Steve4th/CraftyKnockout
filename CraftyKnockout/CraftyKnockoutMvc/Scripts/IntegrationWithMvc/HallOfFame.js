@@ -3,12 +3,6 @@
 
     // Use the Knockout Mapping utility function to convert the supplied JSON into an observable array
     self.FamousCoders = ko.mapping.fromJSON(coderList);
-
-    self.SortCoders = function () {
-        //TODO
-    }
-
-    self.Debug = ko.observable('debugging');
 }
 
 

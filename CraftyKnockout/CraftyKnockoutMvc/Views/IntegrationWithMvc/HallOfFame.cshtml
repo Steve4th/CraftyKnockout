@@ -8,15 +8,12 @@
 
 
 <h2>Hall Of Fame</h2>
-<span data-bind="text: Debug">bob</span>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Crafty Coders Hall of Fame</h3>
         <div class="rightalign">
-            <button type="button" class="btn btn-default" data-bind="click: SortCoders">
-                <span class="glyphicon glyphicon-sort"></span>
-            </button>
+            We have <span data-bind="text: FamousCoders().length"></span> entries in the hall.
         </div>
     </div>
 
@@ -32,15 +29,15 @@
 
                 <span class="badge" data-bind="text: FameScore"></span>
                 <h4 class="list-group-item-heading" data-bind="text: CoderName"></h4>
-                <p class="list-group-item-text" data-bind="text:FamousFor"></p>
-                <span data-bind="text:$index"></span>
+                <p>Is famous for <span class="list-group-item-text" data-bind="text:FamousFor"></span></p>
+
             </a>
 
         </script>
 
     </div>
 </div>
- 
+
 @section Scripts {
     @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/Scripts/IntegrationWithMvc/HallOfFame.js")
