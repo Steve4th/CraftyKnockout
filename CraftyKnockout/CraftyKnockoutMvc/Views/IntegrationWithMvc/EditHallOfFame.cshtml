@@ -1,0 +1,50 @@
+﻿@model CraftyKnockoutMvc.Models.EditHallOfFameModel
+@{
+    ViewBag.Title = "EditHallOfFame";
+}
+
+<!-- Add a hidden field with the model in JSON form. Knockout can then use this to seed the view model-->
+@Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model)))
+
+@Html.BeginForm()
+{
+<h2>Edit the Hall Of Fame</h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Crafty Coders Editable Hall of Fame</h3>
+        <div class="rightalign">
+            We have <span data-bind="text: FamousCoders().length"></span> entries in the hall.
+        </div>
+    </div>
+
+    <div class="panel-body">
+
+        <ul class="list-group" data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }"></ul>
+
+        <!-- Knockout Template -->
+        <script type="text/html" id="coderrowtemplate">
+            <a href="#" data-bind="css: {'list-group-item': true }">
+                <!-- We have to use TextBoxFor because the EditorFor does not allow us to specify the HTML attributes-->
+                <!-- We use First or Default because this is used only to create the template, the values will be overwritten by knockout when binding to this template-->
+                <!-- we could just write the HTML ourselves rather than using the helpers but this way any validation will also be included -->
+                <!-- We have to substitute an underscore for the hyphen in the data-bind attribute to allow Razor to compile. This will be converted back into a hyphen for us.-->
+
+                <h4 class="list-group-item-heading">Name of Coder:</h4>@Html.TextBoxFor(m => m.FamousCoders.FirstOrDefault().CoderName, new { data_bind = "text:CoderName" })
+
+
+                <span>Is famous for</span>@Html.TextAreaFor(m => m.FamousCoders.FirstOrDefault().FamousFor, new { data_bind = "text:FamousFor" })
+
+
+                <span>How do they score?</span> @Html.TextBoxFor(m => m.FamousCoders.FirstOrDefault().FameScore, new { data_bind = "text:FameScore" })
+            </a>
+
+        </script>
+
+    </div>
+</div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/Scripts/IntegrationWithMvc/EditHallOfFame.js")
+}
