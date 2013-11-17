@@ -4,8 +4,49 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<h3>Using JSON Out and In</h3>
+<div class="list-group">
+    <a href="@Url.Action("HelloCraftyCoders")" class="list-group-item">
+        <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span> Hello Crafty Coders Example</h4>
+        <p class="list-group-item-text">A simple example to introduce binding</p>
+    </a>
 
-<h3>Ajax</h3>
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Using JSON Out and In</h3>
+            <p>Getting the MVC model to the client and back again.</p>
+            <div class="list-group">
+                <a href="@Url.Action("HallOfFame")" class="list-group-item">
+                    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span>Knockout Mapping</h4>
+                    <p class="list-group-item-text">An example showing the use of JSON encoding and the ko.mapping extensions to map a server side C# model to a client side JavaScript Knockout ViewModel.</p>
+                </a>
 
-<h3>A Knockout Island</h3>
+                <a href="@Url.Action("EditCoder")" class="list-group-item">
+                    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span>Receiving JSON in a MVC Controller</h4>
+                    <p class="list-group-item-text">An example showing how JSON sent by the client as JSON can be bound to a C# model within an MVC controller.</p>
+                </a>
+
+                <a href="@Url.Action("HallOfFameWithJsonNet")" class="list-group-item">
+                    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span>Why use JSON.NET</h4>
+                    <p class="list-group-item-text">An example illustraing why the JSON.NET serialiser should be used over the MS.NET version.</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Ajax</h3>
+
+            <a href="@Url.Action("SearchExample")" class="list-group-item">
+                <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-bookmark"></span>Search Example</h4>
+                <p class="list-group-item-text">An example illustraing the use of knockout to update you UI when fetching data via AJAX requests.</p>
+            </a>
+           
+
+        </div>
+
+        <div class="col-md-4">
+            <h3>A Knockout Island</h3>
+            <p>Using knockout to manage a collection of items within a tradintional MVC form.</p>
+
+            @Html.ActionLink("Island", "Island", "IntegrationWithMvc", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
