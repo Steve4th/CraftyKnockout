@@ -3,8 +3,8 @@
     ViewBag.Title = "HallOfFame";
 }
 
-<!-- Add a hidden field with the list in JSON form. Knockout can then use this to seed the view model-->
-@Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model.FamousCoders)))
+<!-- Add a hidden field with the model in JSON form. Knockout can then use this to seed the view model-->
+@Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model)))
 
 
 <h2>Hall Of Fame</h2>
