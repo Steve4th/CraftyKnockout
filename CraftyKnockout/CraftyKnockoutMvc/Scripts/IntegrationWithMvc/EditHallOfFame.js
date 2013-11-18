@@ -4,7 +4,7 @@
     self.FamousCoders = ko.mapping.fromJSON(initialListOfCoders);
 
     self.FamousCoderCount = ko.computed(function () {
-        //return self.FamousCoders.length;
+        return self.FamousCoders().length;
     });
 
     self.RemoveCoder = function (record) {
