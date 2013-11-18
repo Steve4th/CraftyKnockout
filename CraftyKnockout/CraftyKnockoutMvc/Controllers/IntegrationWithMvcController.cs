@@ -43,17 +43,17 @@ namespace CraftyKnockoutMvc.Controllers
                 model.FamousCoders.Add(coder);
             }
 
-            return View(model);
+            return View(listOfFamousCoders);
         }
 
 
         [HttpPost]
-        public ActionResult EditHallOfFame([FromJson] HallOfFameModel model)
+        public ActionResult EditHallOfFame([FromJson] IList<FamousCoder> model)
         {
             if (ModelState.IsValid)
             {
                 //you would save the model contents here....
-                foreach (var item in model.FamousCoders)
+                foreach (var item in model)
                 {
                     Debug.WriteLine("CoderName: {0}; Famous For:{1}; Scored: {2}", item.CoderName, item.FamousFor, item.FameScore);
                 }

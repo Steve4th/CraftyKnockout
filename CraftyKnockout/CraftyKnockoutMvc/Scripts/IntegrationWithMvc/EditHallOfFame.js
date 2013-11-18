@@ -1,24 +1,24 @@
 ﻿function EditableHallOfFrame(initialListOfCoders) {
-    self = this;
+    vmself = this;
 
-    self.FamousCoders = ko.mapping.fromJSON(initialListOfCoders);
+    vmself.FamousCoders = ko.mapping.fromJSON(initialListOfCoders);
 
-    self.FamousCoderCount = ko.computed(function () {
-        return self.FamousCoders().length;
+    vmself.FamousCoderCount = ko.computed(function () {
+        return vmself.FamousCoders().length;
     });
 
-    self.RemoveCoder = function (record) {
-        //self.FamousCoders.remove(record);
+    vmself.RemoveCoder = function (record) {
+        vmself.FamousCoders().remove(record);
     };
 
-    self.SaveIt = function () {
-        //postback the model as JSON to the server
-        ko.utils.postJson(location.href, { model: self });
-
+    vmself.SaveIt = function () {
+        
         //// Use the ko.toJS to convert the array into POJO's. 
         //// This way when encoded by the postJson method the observable properties are also included,
-        ////var jsDataPayload = ko.toJS(self.NumberdwellingTypes);
-        ////ko.utils.postJson(location.href, { NumberdwellingTypes: jsDataPayload });
+        var jsPayLoad = ko.toJS(vmself.FamousCoders());
+
+        //postback the model as JSON to the server
+        ko.utils.postJson(location.href, { model: jsPayLoad });
     };
 }
 

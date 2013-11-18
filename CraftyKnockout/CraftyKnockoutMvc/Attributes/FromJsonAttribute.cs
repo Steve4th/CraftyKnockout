@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
@@ -25,7 +26,11 @@
                     return null;
                 }
 
+                Debug.WriteLine("JsonModelBinder - bindingContext.ModelName: " + bindingContext.ModelName);
+
                 var stringified = controllerContext.HttpContext.Request[bindingContext.ModelName];
+
+                Debug.WriteLine("JsonModelBinder - Model Request String: " + stringified);
 
                 if (string.IsNullOrEmpty(stringified))
                 {
