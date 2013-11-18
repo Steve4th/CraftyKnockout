@@ -1,4 +1,4 @@
-﻿namespace CraftyKnockoutMvc.App_Code
+﻿namespace CraftyKnockoutMvc.Utilities
 {
     /// <summary>
     /// Entity Serialization and de-serialization methods

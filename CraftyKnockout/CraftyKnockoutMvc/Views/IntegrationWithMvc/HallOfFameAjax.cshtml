@@ -1,0 +1,42 @@
+﻿@model CraftyKnockoutMvc.Models.HallOfFameModel
+@{
+    ViewBag.Title = "HallOfFameAjax";
+}
+
+<h2>Hall Of Fame via AJAX</h2>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Crafty Coders Hall of Fame</h3>
+        <div class="rightalign">
+            We have <span data-bind="text: FamousCoders().length"></span> entries in the hall.
+        </div>
+    </div>
+
+    <div class="panel-body">
+
+        <ul class="list-group" data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }"></ul>
+
+        <!-- Knockout Template -->
+        <script type="text/html" id="coderrowtemplate">
+
+            <a href="#" data-bind="css: {'list-group-item': true }">
+
+                <span class="badge" data-bind="text: FameScore"></span>
+                <h4 class="list-group-item-heading" data-bind="text: CoderName"></h4>
+                <p>Is famous for <span class="list-group-item-text" data-bind="text:FamousFor"></span></p>
+
+            </a>
+
+        </script>
+
+    </div>
+</div>
+
+<h2>&nbsp;</h2>
+@Html.ActionLink("See JSON data", "HallOfFameAjaxModel")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/Scripts/IntegrationWithMvc/HallOfFameAjax.js")
+}

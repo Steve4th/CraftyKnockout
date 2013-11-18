@@ -1,4 +1,5 @@
-﻿using CraftyKnockoutMvc.Models;
+﻿using System.Web.Helpers;
+using CraftyKnockoutMvc.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
@@ -30,6 +31,28 @@ namespace CraftyKnockoutMvc.Controllers
             return View(model);
         }
 
+
+        public ActionResult HallOfFameAjax()
+        {
+            return View();
+        }
+
+        public JsonResult HallOfFameAjaxModel()
+        {
+            var model = new HallOfFameModel();
+
+            var listOfFamousCoders = GetFamousCoders();
+
+            foreach (var coder in listOfFamousCoders)
+            {
+                model.FamousCoders.Add(coder);
+            }
+
+            //return model.JsonSerialize();
+            var jsonEncodedModel = Newtonsoft.Json.JsonConvert.SerializeObject(model);
+
+            return Json(jsonEncodedModel, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpGet]
         public ActionResult EditHallOfFame()

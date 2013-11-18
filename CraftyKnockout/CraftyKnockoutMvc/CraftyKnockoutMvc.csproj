@@ -124,7 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\EntitySerialization.cs" />
+    <Content Include="Utilities\EntitySerialization.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -162,6 +162,7 @@
     <Content Include="Scripts\GettingStarted\Observable.js" />
     <Content Include="Scripts\GettingStarted\ObservableArray.js" />
     <Content Include="Scripts\IntegrationWithMvc\EditHallOfFame.js" />
+    <Content Include="Scripts\IntegrationWithMvc\HallOfFameAjax.js" />
     <Content Include="Scripts\IntegrationWithMvc\HallOfFame.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -201,8 +202,10 @@
     <Content Include="Views\GettingStarted\ObservableArray.cshtml" />
     <Content Include="Views\IntegrationWithMvc\HallOfFame.cshtml" />
     <Content Include="Views\IntegrationWithMvc\EditHallOfFame.cshtml" />
+    <Content Include="Views\IntegrationWithMvc\HallOfFameAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
