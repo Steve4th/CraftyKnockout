@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace CraftyKnockoutMvc.Repository
 {
-    public interface IRepository<T>
+    public interface IRepository<T> : IDisposable
     {
         IQueryable<T> GetAll();
         IQueryable<T> Get(params Expression<Func<T, object>>[] includeProperties);

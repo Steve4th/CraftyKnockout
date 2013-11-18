@@ -22,7 +22,7 @@
             var resultQuery = inMemoryFamousCoderList.AsQueryable<FamousCoder>();
             foreach (var includeProperty in includeProperties)
             {
-                resultQuery = resultQuery.Include(includeProperty);
+                //resultQuery = resultQuery.Include(includeProperty);
             }
             return resultQuery;
         }
