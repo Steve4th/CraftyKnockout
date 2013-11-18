@@ -34,16 +34,9 @@ namespace CraftyKnockoutMvc.Controllers
         [HttpGet]
         public ActionResult EditHallOfFame()
         {
-            var model = new EditHallOfFameModel();
+           var listOfFamousCoders = GetFamousCoders();
 
-            var listOfFamousCoders = GetFamousCoders();
-
-            foreach (var coder in listOfFamousCoders)
-            {
-                model.FamousCoders.Add(coder);
-            }
-
-            return View(listOfFamousCoders);
+           return View(listOfFamousCoders);
         }
 
 
@@ -59,7 +52,7 @@ namespace CraftyKnockoutMvc.Controllers
                 }
             }
 
-            return View(model);
+            return RedirectToAction("EditHallOfFame");
         }
 
         private static IList<FamousCoder> GetFamousCoders()
