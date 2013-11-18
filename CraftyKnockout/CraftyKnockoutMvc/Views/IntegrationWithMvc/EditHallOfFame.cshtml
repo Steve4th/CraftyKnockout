@@ -4,17 +4,15 @@
 }
 
 <!-- Add a hidden field with the model in JSON form. Knockout can then use this to seed the view model-->
-@Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model)))
+@Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model.FamousCoders)))
 
-@Html.BeginForm()
-{
 <h2>Edit the Hall Of Fame</h2>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Crafty Coders Editable Hall of Fame</h3>
-        <div class="rightalign">
-            We have <span data-bind="text: FamousCoders().length"></span> entries in the hall.
+        <div class="rightalign" data-bind="visible: FamousCoderCount() > 0">
+            We have <span data-bind="text: FamousCoderCount()">?</span> entries in the hall.
         </div>
     </div>
 
@@ -30,21 +28,34 @@
                 <!-- we could just write the HTML ourselves rather than using the helpers but this way any validation will also be included -->
                 <!-- We have to substitute an underscore for the hyphen in the data-bind attribute to allow Razor to compile. This will be converted back into a hyphen for us.-->
 
-                <h4 class="list-group-item-heading">Name of Coder:</h4>@Html.TextBoxFor(m => m.FamousCoders.FirstOrDefault().CoderName, new { data_bind = "text:CoderName" })
+                <span class="list-group-item-heading">Name of Coder:</span>@Html.TextBoxFor(m => m.FamousCoders.FirstOrDefault().CoderName, new { data_bind = "value:CoderName" })
 
 
                 <span>Is famous for</span>@Html.TextAreaFor(m => m.FamousCoders.FirstOrDefault().FamousFor, new { data_bind = "text:FamousFor" })
 
 
-                <span>How do they score?</span> @Html.TextBoxFor(m => m.FamousCoders.FirstOrDefault().FameScore, new { data_bind = "text:FameScore" })
-            </a>
+                <span>How do they score?</span> @Html.TextBoxFor(m => m.FamousCoders.FirstOrDefault().FameScore, new { data_bind = "value:FameScore" })
 
-        </script>
+                @*<div class="rightalign">
+            <!-- NB. Use the $root to get to the root of the view model, without it the template will think the method is on the current record-->
+            <div class="btn btn-sm" data-bind="click: $root.RemoveCoder">
+                <span class="glyphicon glyphicon-trash right"></span>
+            </div>
+        </div>
 
-    </div>
-</div>
-}
-@section Scripts {
-    @Scripts.Render("~/bundles/knockout")
-    @Scripts.Render("~/Scripts/IntegrationWithMvc/EditHallOfFame.js")
-}
+    </a>
+*@
+                            </script>
+
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-default" data-bind="click:SaveIt">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                        Save Updates
+                    </button>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/knockout")
+                        @Scripts.Render("~/Scripts/IntegrationWithMvc/EditHallOfFame.js")
+                    }
