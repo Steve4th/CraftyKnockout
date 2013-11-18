@@ -6,9 +6,9 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-   
 
-    public class FamousCoderInMemoryRepository: IRepository<FamousCoder>
+
+    public class FamousCoderInMemoryRepository : IFamousCoderRepository
     {
         private readonly IList<FamousCoder> inMemoryFamousCoderList = new List<FamousCoder>();
 

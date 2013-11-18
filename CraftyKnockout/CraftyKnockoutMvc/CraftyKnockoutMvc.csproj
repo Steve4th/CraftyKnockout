@@ -138,6 +138,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Repository\FamousCoderInMemoryRepository.cs" />
+    <Compile Include="Repository\IFamousCoderRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Content Include="Utilities\EntitySerialization.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

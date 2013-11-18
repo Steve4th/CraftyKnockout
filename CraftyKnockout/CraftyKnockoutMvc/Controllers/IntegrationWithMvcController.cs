@@ -4,12 +4,20 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Linq;
 using CraftyKnockoutMvc.Attributes;
+using CraftyKnockoutMvc.Repository;
 using System.Diagnostics;
 
 namespace CraftyKnockoutMvc.Controllers
 {
     public class IntegrationWithMvcController : Controller
     {
+        private readonly IFamousCoderRepository famousCoderRepository;
+
+        public IntegrationWithMvcController(IFamousCoderRepository coderRepository)
+        {
+            famousCoderRepository = coderRepository;
+        }
+
         public ActionResult Index()
         {
             ViewBag.Title = "Part II - Getting started with KnockoutJS";

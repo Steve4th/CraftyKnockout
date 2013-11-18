@@ -10,6 +10,8 @@ namespace CraftyKnockoutMvc.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using CraftyKnockoutMvc.Models;
+    using CraftyKnockoutMvc.Repository;
 
     public static class NinjectWebCommon 
     {
@@ -53,6 +55,8 @@ namespace CraftyKnockoutMvc.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            //Note : Need to add the InSingletonScope to the binding to ensure we only get one instance of the repository
+            kernel.Bind<IFamousCoderRepository>().To<FamousCoderInMemoryRepository>().InSingletonScope();
         }        
     }
 }
