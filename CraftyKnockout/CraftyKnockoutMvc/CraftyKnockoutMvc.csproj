@@ -124,7 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repository\FamousCoderRepository.cs" />
+    <Compile Include="Repository\FamousCoderInMemoryRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Content Include="Utilities\EntitySerialization.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

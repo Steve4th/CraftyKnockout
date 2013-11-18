@@ -9,7 +9,7 @@ namespace CraftyKnockoutMvc.Repository
         IQueryable<T> GetAll();
         IQueryable<T> Get(params Expression<Func<T, object>>[] includeProperties);
         T Get(int id);
-        void InsertOrUpdate(T address);
+        void InsertOrUpdate(T entity);
         void Delete(int id);
         void Save();
     }

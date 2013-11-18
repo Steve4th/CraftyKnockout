@@ -4,6 +4,9 @@
 
     public class FamousCoder
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         [StringLength(30)]
         public string CoderName { get; set; }
