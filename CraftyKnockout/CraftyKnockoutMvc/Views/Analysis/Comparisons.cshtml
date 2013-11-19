@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<h3>Knockout vs VanilliaJS</h3>
+<ul>
+    <li>You could indeed write you own data dinging library, but whty would you when there are projects out there that do it for you?</li>
+    <li>Knockout does not mandate or rely on any other *JS libraries, not even JQuery. So if you need data-binding you can use knockout and code the rest yourself.</li>
+</ul>
+
+<h3>Knockout vs AngluarJS/EmberJs</h3>
+<ul>
+    <li>
+        Knockout is not intending to be a UI building framework. As described by John Papa on his blog it is not a fair comparison.
+        Knockout is a binding library, and only intends to be so. Angular is a full application framework. Anglular does indeed have its own
+        data binding syntax.
+        <br />
+        <a href="http://www.johnpapa.net/compare-durandal-to-angular-not-knockout-to-angular/">johnpapa.net/compare-durandal-to-angular-not-knockout-to-angular</a>
+    </li>
+    <li>
+        <a href="http://blog.nebithi.com/knockoutjs-vs-angularjs/">blog.nebithi.com/knockoutjs-vs-angularjs/</a>
+    </li>
+</ul>
+
+<h3>Knockout vs BackboneJS</h3>
+<ul>
+    <li>
+        <a href="http://stackoverflow.com/questions/10320074/why-does-knockout-js-have-a-reputation-for-being-better-for-small-projects-back?lq=1">
+            Why does Knockout have a reputation for being better for small projects?
+        </a>
+    </li>
+    <li>
+        <a href="http://stackoverflow.com/questions/12955337/angular-js-backbone-js-and-other-mv-patterned-js-libraries?rq=1">
+            Angular, Backbone and other MV* pattern libraries
+        </a>
+    </li>
+</ul>
+

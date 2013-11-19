@@ -4,5 +4,6 @@ namespace CraftyKnockoutMvc.Repository
 {
     public interface IFamousCoderRepository: IRepository<FamousCoder>
     {
+        
     }
 }

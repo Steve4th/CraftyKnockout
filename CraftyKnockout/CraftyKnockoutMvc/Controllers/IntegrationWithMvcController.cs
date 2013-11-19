@@ -16,6 +16,8 @@ namespace CraftyKnockoutMvc.Controllers
         public IntegrationWithMvcController(IFamousCoderRepository coderRepository)
         {
             famousCoderRepository = coderRepository;
+
+            SeedRepository();
         }
 
         public ActionResult Index()
@@ -84,6 +86,21 @@ namespace CraftyKnockoutMvc.Controllers
             }
 
             return RedirectToAction("EditHallOfFame");
+        }
+
+
+        private void SeedRepository()
+        {
+            //HACK: I know this stinks but it is a quick fix for now.
+            if (famousCoderRepository.GetAll().Count() == 0)
+            {
+                var seedCoders = GetFamousCoders();
+
+                foreach (var coder in seedCoders)
+                {
+                    famousCoderRepository.InsertOrUpdate(coder);
+                }
+            }
         }
 
         private static IList<FamousCoder> GetFamousCoders()

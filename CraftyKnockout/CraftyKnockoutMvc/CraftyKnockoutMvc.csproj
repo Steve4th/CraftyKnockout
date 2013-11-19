@@ -219,6 +219,7 @@
     <Content Include="Views\IntegrationWithMvc\HallOfFame.cshtml" />
     <Content Include="Views\IntegrationWithMvc\EditHallOfFame.cshtml" />
     <Content Include="Views\IntegrationWithMvc\HallOfFameAjax.cshtml" />
+    <Content Include="Views\Analysis\Comparisons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
