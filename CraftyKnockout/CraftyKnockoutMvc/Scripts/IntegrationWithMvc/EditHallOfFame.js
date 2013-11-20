@@ -1,4 +1,12 @@
-﻿function EditableHallOfFrame(initialListOfCoders) {
+﻿//to create a new entity we end up duplicating the C# class - boo
+function CoderProfile() {
+    CoderName = ko.observable('');
+    FameScore = ko.observable(0);
+    FamousFor = ko.observable('');
+};
+
+
+function EditableHallOfFrame(initialListOfCoders) {
     vmself = this;
 
     vmself.FamousCoders = ko.mapping.fromJSON(initialListOfCoders);
@@ -8,7 +16,12 @@
     });
 
     vmself.RemoveCoder = function (record) {
-        vmself.FamousCoders().remove(record);
+        vmself.FamousCoders.remove(record);
+    };
+
+    vmself.AddCoder = function () {
+        var newCoder = new CoderProfile();
+        vmself.FamousCoders.push(newCoder);
     };
 
     vmself.SaveIt = function () {
