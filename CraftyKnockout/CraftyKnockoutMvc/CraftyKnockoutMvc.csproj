@@ -228,6 +228,7 @@
     <Content Include="Views\IntegrationWithMvc\HallOfFameAjax.cshtml" />
     <Content Include="Views\Analysis\Comparisons.cshtml" />
     <Content Include="Views\IntegrationWithMvc\KnockoutIsland.cshtml" />
+    <Content Include="Views\IntegrationWithMvc\EventView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

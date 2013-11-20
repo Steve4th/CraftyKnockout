@@ -1,0 +1,17 @@
+﻿@model CraftyKnockoutMvc.Models.KnockoutIslandModel
+
+@{
+    ViewBag.Title = "EventView";
+}
+
+<h2>EventView</h2>
+
+<div>
+    <h4>KnockoutIslandModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit Event", "KnockoutIsland", new { id = Model.Event.EventId }, new { @class="btn btn-default" }) |
+</p>

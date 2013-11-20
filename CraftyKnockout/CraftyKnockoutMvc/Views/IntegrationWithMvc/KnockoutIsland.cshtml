@@ -16,18 +16,32 @@
             <h4 class="panel-title">Plan your event, enter details and click Save.</h4>
         </div>
         <div class="panel-body">
-            @Html.LabelFor(m => m.Event.EventName)
-            @Html.EditorFor(m => m.Event.EventName)
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Event.EventName)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Event.EventName, new { @class = "form-control" })
+                </div>
+            </div>
 
-            @Html.LabelFor(m => m.Event.Location)
-            @Html.EditorFor(m => m.Event.Location)
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Event.Location)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Event.Location, new { @class = "form-control" })
+                </div>
+            </div>
 
-            @Html.LabelFor(m => m.Event.DateOfEvent)
-            @Html.EditorFor(m => m.Event.DateOfEvent)
-
-
-
-
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Event.DateOfEvent)
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Event.DateOfEvent, new { @class = "form-control", type="date" })
+                </div>
+            </div>
 
         </div>
     </div>

@@ -89,7 +89,6 @@ namespace CraftyKnockoutMvc.Controllers
             return RedirectToAction("EditHallOfFame");
         }
 
-
         [HttpGet]
         public ActionResult KnockoutIsland()
         {
@@ -103,7 +102,7 @@ namespace CraftyKnockoutMvc.Controllers
         [HttpPost]
         public ActionResult KnockoutIsland(KnockoutIslandModel model)
         {
-            throw new NotImplementedException();
+            return View("EventView", model);
         }
 
         private void SeedRepository()
