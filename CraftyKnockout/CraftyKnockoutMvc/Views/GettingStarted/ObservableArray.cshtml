@@ -1,10 +1,11 @@
 ﻿<h2>Observables III - ObservableArray</h2>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Crafty Coders Hall of Fame</h3>
+                <p>There are <span data-bind="text: FamousCoders().length"></span> entries to the hall.</p>
                 <div class="rightalign">
                     <button type="button" class="btn btn-default" data-bind="click: AddCoder">
                         <span class="glyphicon glyphicon-plus"></span>
@@ -19,25 +20,24 @@
 
                 <div class="list-group" data-bind="foreach: FamousCoders">
 
-                        <!-- the CSS binding provides the ability to determine css classes based on the view model-->
-                        <a href="#" data-bind="css: {'list-group-item': true }">
+                    <a href="#" class="list-group-item" data-bind="click: $root.EditCoder, css:{ 'active': isSelected }">
 
-                            <span class="badge" data-bind="text: fameScore"></span>
-                            <h4 class="list-group-item-heading" data-bind="text: coderName"></h4>
-                            <p class="list-group-item-text" data-bind="text:famousFor"></p>
-                            <i>ko $index:<span data-bind="text:$index"></span></i>
-                            <div class="rightalign">
-                                <!-- NB. Use the $root to get to the root of the view model, without it the template will think the method is on the current record-->
-                                <div class="btn btn-sm" data-bind="click: $root.RemoveCoder">
-                                    <span class="glyphicon glyphicon-trash right"></span>
-                                </div>
-                                <div class="btn btn-sm" data-bind="click: $root.EditCoder">
-                                    <span class="glyphicon glyphicon-book"></span>
-                                </div>
+                        <span class="badge" data-bind="text: fameScore"></span>
+                        <h4 class="list-group-item-heading" data-bind="text: coderName"></h4>
+                        <p class="list-group-item-text" data-bind="text:famousFor"></p>
+
+                        <p class="text-info">
+                            <i>ko $index:<span data-bind="text:$index"></span></i><br />
+                            <i>isSelected:<span data-bind="text: isSelected"></span></i>
+                        </p>
+
+                        <div class="rightalign">
+                            <!-- NB. Use the $root to get to the root of the view model, without it the template will think the method is on the current record-->
+                            <div class="btn btn-sm" data-bind="click: $root.RemoveCoder">
+                                <span class="glyphicon glyphicon-trash right"></span>
                             </div>
-                        </a>
-
-               
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -74,12 +74,14 @@
     </div>
 
 
-    <div class="col-md-4">
-        <div class="notes">
-            notes on observable arrays and templating
-            An observableArray tracks which objects are in the array, not the state of those objects!
-        </div>
+    <div class="col-md-2">
+
     </div>
+</div>
+
+<div class="notes">
+    notes on observable arrays and templating
+    An observableArray tracks which objects are in the array, not the state of those objects!
 </div>
 
 @section Scripts {
