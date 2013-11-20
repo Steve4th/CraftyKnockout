@@ -322,13 +322,13 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: #f16529;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #eeeeee;
+  /*color: #eeeeee;*/
   text-decoration: underline;
 }
 
@@ -4762,7 +4762,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse {
   background-color: #222222;
-  border-color: #080808;
+  /*border-color: #080808;*/
 }
 
 .navbar-inverse .navbar-brand {

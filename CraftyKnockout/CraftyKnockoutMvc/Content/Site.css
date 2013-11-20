@@ -13,7 +13,7 @@
 }
 
 .footer-container, .main aside {
-     border-top: 20px solid rgb(50, 47, 47);
+    border-top: 20px solid rgb(50, 47, 47);
     background: #f16529;
     width: 100%;
 }
@@ -24,9 +24,13 @@
         width: 1170px;
     }
 
+.footer-link{
+    list-style: disc;
+}
 
-a {
-    color: rgb(50, 47, 47);
+
+.footer-link a {
+    color: white;
 }
 
 .rightalign{
