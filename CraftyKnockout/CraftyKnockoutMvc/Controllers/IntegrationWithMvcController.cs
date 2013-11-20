@@ -6,6 +6,7 @@ using System.Linq;
 using CraftyKnockoutMvc.Attributes;
 using CraftyKnockoutMvc.Repository;
 using System.Diagnostics;
+using System;
 
 namespace CraftyKnockoutMvc.Controllers
 {
@@ -89,13 +90,21 @@ namespace CraftyKnockoutMvc.Controllers
         }
 
 
+        [HttpGet]
         public ActionResult KnockoutIsland()
         {
             var model = new KnockoutIslandModel();
 
+            model.PossibleSpeakers = famousCoderRepository.GetAll().AsEnumerable();
+
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult KnockoutIsland(KnockoutIslandModel model)
+        {
+            throw new NotImplementedException();
+        }
 
         private void SeedRepository()
         {

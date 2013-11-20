@@ -4,7 +4,38 @@
 }
 
 <h2>A Knockout Island</h2>
+<p>
+    The idea behind KNockout Islands is that you require the power of knockout to handle a collection in only part of your view.
+    In this example we are assuming that you need to handle a collection of items within an existing MVC view.
+</p>
 
+@using (Html.BeginForm())
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h4 class="panel-title">Plan your event, enter details and click Save.</h4>
+        </div>
+        <div class="panel-body">
+            @Html.LabelFor(m => m.Event.EventName)
+            @Html.EditorFor(m => m.Event.EventName)
+
+            @Html.LabelFor(m => m.Event.Location)
+            @Html.EditorFor(m => m.Event.Location)
+
+            @Html.LabelFor(m => m.Event.DateOfEvent)
+            @Html.EditorFor(m => m.Event.DateOfEvent)
+
+
+
+
+
+        </div>
+    </div>
+    <button type="button" class="btn btn-default" onclick="$('form').submit()">
+        <span class="glyphicon glyphicon-floppy-disk"></span>
+        Save Event
+    </button>
+}
 
 
 @section Scripts {

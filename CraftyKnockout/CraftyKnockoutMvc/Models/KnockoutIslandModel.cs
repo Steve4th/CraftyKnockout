@@ -8,6 +8,6 @@ namespace CraftyKnockoutMvc.Models
     {
         public Event Event { get; set; }
 
-        public IList<FamousCoder> AvailableSpeakers { get; set; }
+        public IEnumerable<FamousCoder> PossibleSpeakers { get; set; }
     }
 }
