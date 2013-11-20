@@ -11,9 +11,9 @@ namespace CraftyKnockoutMvc.Controllers
 {
     public class IntegrationWithMvcController : Controller
     {
-        private readonly IFamousCoderRepository famousCoderRepository;
+        private readonly IRepository<FamousCoder> famousCoderRepository;
 
-        public IntegrationWithMvcController(IFamousCoderRepository coderRepository)
+        public IntegrationWithMvcController(IRepository<FamousCoder> coderRepository)
         {
             famousCoderRepository = coderRepository;
 

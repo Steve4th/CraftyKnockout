@@ -56,7 +56,7 @@ namespace CraftyKnockoutMvc.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             //Note : Need to add the InSingletonScope to the binding to ensure we only get one instance of the repository
-            kernel.Bind<IFamousCoderRepository>().To<FamousCoderInMemoryRepository>().InSingletonScope();
+            kernel.Bind<IRepository<FamousCoder>>().To<FamousCoderInMemoryRepository>().InSingletonScope();
         }        
     }
 }

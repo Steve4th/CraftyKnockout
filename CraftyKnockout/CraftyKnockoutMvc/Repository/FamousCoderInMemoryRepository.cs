@@ -1,46 +1,45 @@
 ﻿namespace CraftyKnockoutMvc.Repository
 {
-    using System.Linq.Expressions;
-    using CraftyKnockoutMvc.Models;
-    using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
+    using CraftyKnockoutMvc.Models;
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
+    using System;
 
-
-    public class FamousCoderInMemoryRepository : IFamousCoderRepository
+    public class FamousCoderInMemoryRepository : IRepository<FamousCoder>
     {
-        private readonly IList<FamousCoder> inMemoryFamousCoderList = new List<FamousCoder>();
+        protected readonly IList<FamousCoder> inMemoryList = new List<FamousCoder>();
 
         public IQueryable<FamousCoder> GetAll()
         {
-            return inMemoryFamousCoderList.AsQueryable<FamousCoder>();
+            return inMemoryList.AsQueryable<FamousCoder>();
         }
 
         public IQueryable<FamousCoder> Get(params Expression<Func<FamousCoder, object>>[] includeProperties)
         {
-            var resultQuery = inMemoryFamousCoderList.AsQueryable<FamousCoder>();
+            var resultQuery = inMemoryList.AsQueryable();
             foreach (var includeProperty in includeProperties)
             {
-                //resultQuery = resultQuery.Include(includeProperty);
+                resultQuery = resultQuery.Include(includeProperty);
             }
             return resultQuery;
         }
 
         public FamousCoder Get(int id)
         {
-            return inMemoryFamousCoderList.Where(coder => coder.Id == id).FirstOrDefault();
+            return inMemoryList.Where(t => t.Id == id).FirstOrDefault();
         }
 
         public void InsertOrUpdate(FamousCoder entity)
         {
-            if (entity.Id == default(int)) entity.Id = inMemoryFamousCoderList.Count + 1;
+            if (entity.Id == default(int)) entity.Id = inMemoryList.Count + 1;
 
             var savedEntity = Get(entity.Id);
 
-            if (savedEntity != null) inMemoryFamousCoderList.Remove(savedEntity);
+            if (savedEntity != null) inMemoryList.Remove(savedEntity);
 
-            inMemoryFamousCoderList.Add(entity);
+            inMemoryList.Add(entity);
         }
 
         public void Delete(int id)
