@@ -89,6 +89,14 @@ namespace CraftyKnockoutMvc.Controllers
         }
 
 
+        public ActionResult KnockoutIsland()
+        {
+            var model = new KnockoutIslandModel();
+
+            return View(model);
+        }
+
+
         private void SeedRepository()
         {
             //HACK: I know this stinks but it is a quick fix for now.

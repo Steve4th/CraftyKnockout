@@ -142,8 +142,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\KnockoutIslandModel.cs" />
     <Compile Include="Repository\FamousCoderInMemoryRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Content Include="Scripts\IntegrationWithMvc\KnockoutIsland.js" />
     <Content Include="Utilities\EntitySerialization.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -224,6 +227,7 @@
     <Content Include="Views\IntegrationWithMvc\EditHallOfFame.cshtml" />
     <Content Include="Views\IntegrationWithMvc\HallOfFameAjax.cshtml" />
     <Content Include="Views\Analysis\Comparisons.cshtml" />
+    <Content Include="Views\IntegrationWithMvc\KnockoutIsland.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />
