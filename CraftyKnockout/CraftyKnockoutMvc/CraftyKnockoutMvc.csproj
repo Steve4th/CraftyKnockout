@@ -144,8 +144,10 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\KnockoutIslandModel.cs" />
+    <Compile Include="Repository\BatchUpdateRepositoryExtension.cs" />
     <Compile Include="Repository\FamousCoderInMemoryRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\SeedRepositoryExtension.cs" />
     <Content Include="Scripts\IntegrationWithMvc\KnockoutIsland.js" />
     <Content Include="Utilities\EntitySerialization.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />

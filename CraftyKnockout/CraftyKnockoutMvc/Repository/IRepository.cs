@@ -17,5 +17,7 @@ namespace CraftyKnockoutMvc.Repository
         void Delete(int id);
         
         void Save();
+
+        void Clear();
     }
 }

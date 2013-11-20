@@ -17,8 +17,7 @@ namespace CraftyKnockoutMvc.Controllers
         public IntegrationWithMvcController(IRepository<FamousCoder> coderRepository)
         {
             famousCoderRepository = coderRepository;
-
-            SeedRepository();
+            famousCoderRepository.SeedRepository();
         }
 
         public ActionResult Index()
@@ -32,7 +31,7 @@ namespace CraftyKnockoutMvc.Controllers
         {
             var model = new HallOfFameModel();
 
-            var listOfFamousCoders = GetFamousCoders();
+            var listOfFamousCoders = famousCoderRepository.GetAll();
 
             foreach (var coder in listOfFamousCoders)
             {
@@ -48,11 +47,12 @@ namespace CraftyKnockoutMvc.Controllers
             return View();
         }
 
+        [HttpGet]
         public JsonResult HallOfFameAjaxModel()
         {
             var model = new HallOfFameModel();
 
-            var listOfFamousCoders = GetFamousCoders();
+            var listOfFamousCoders = famousCoderRepository.GetAll();
 
             foreach (var coder in listOfFamousCoders)
             {
@@ -68,7 +68,7 @@ namespace CraftyKnockoutMvc.Controllers
         [HttpGet]
         public ActionResult EditHallOfFame()
         {
-           var listOfFamousCoders = GetFamousCoders();
+            var listOfFamousCoders = famousCoderRepository.GetAll().AsEnumerable();
 
            return View(listOfFamousCoders);
         }
@@ -79,11 +79,12 @@ namespace CraftyKnockoutMvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                //you would save the model contents here....
                 foreach (var item in model)
                 {
                     Debug.WriteLine("CoderName: {0}; Famous For:{1}; Scored: {2}", item.CoderName, item.FamousFor, item.FameScore);
                 }
+
+                famousCoderRepository.UpdateToMatchList(model);
             }
 
             return RedirectToAction("EditHallOfFame");
@@ -103,47 +104,6 @@ namespace CraftyKnockoutMvc.Controllers
         public ActionResult KnockoutIsland(KnockoutIslandModel model)
         {
             return View("EventView", model);
-        }
-
-        private void SeedRepository()
-        {
-            //HACK: I know this stinks but it is a quick fix for now.
-            if (famousCoderRepository.GetAll().Count() == 0)
-            {
-                var seedCoders = GetFamousCoders();
-
-                foreach (var coder in seedCoders)
-                {
-                    famousCoderRepository.InsertOrUpdate(coder);
-                }
-            }
-        }
-
-        private static IList<FamousCoder> GetFamousCoders()
-        {
-            var returnList = new List<FamousCoder>()
-            {
-                new FamousCoder()
-                {
-                    CoderName = "Jon Skeet",
-                    FameScore = 20,
-                    FamousFor = "Stack overflow"
-                },
-                new FamousCoder()
-                {
-                    CoderName = "Douglas Crockford",
-                    FameScore = 10,
-                    FamousFor = "JavaScript"
-                },
-                new FamousCoder()
-                   {
-                       CoderName = "Scott Guthrie",
-                       FameScore = 25,
-                       FamousFor = "Red Shirt"
-                   }
-            };
-
-            return returnList;
         }
 	}
 }

@@ -60,5 +60,13 @@
         {
             //do nothing as we have nothing to do here.
         }
+        
+        /// <summary>
+        /// Remove all the items from the repository
+        /// </summary>
+        public void Clear()
+        {
+            inMemoryList.Clear();
+        }
     }
 }
