@@ -103,6 +103,8 @@ namespace CraftyKnockoutMvc.Controllers
         [HttpPost]
         public ActionResult KnockoutIsland(KnockoutIslandModel model)
         {
+
+
             return View("EventView", model);
         }
 	}

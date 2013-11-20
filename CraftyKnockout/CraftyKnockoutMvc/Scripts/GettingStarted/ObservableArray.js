@@ -1,8 +1,24 @@
-﻿function CoderProfile() {
-    coderName = ko.observable('EnterName'),
-    score = ko.observable(0),
-    famousFor = ko.observable('Enter a claim to fame')
+﻿var CoderProfile = function () {
+    this.coderName = ko.observable('EnterName');
+    this.fameScore = ko.observable(0);
+    this.famousFor = ko.observable('Enter a claim to fame');
 };
+
+
+function CompareCoder(left, right) {
+    console.log(ko.utils.unwrapObservable(left));
+    if (left.fameScore() === right.fameScore()) {
+        return 0;
+    }
+    else {
+        if (left.fameScore() < right.fameScore()) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
+    }
+}
 
 function HallOfFrameViewModel() {
     self = this;
@@ -12,7 +28,10 @@ function HallOfFrameViewModel() {
     self.EditableRecord = ko.observable();
 
     self.AddCoder = function () {
-        var coder = new CoderProfile();
+        var coder = new CoderProfile()
+            .fameScore(0)
+            .coderName('')
+            .famousFor('');
         self.FamousCoders.push(coder);
         self.EditableRecord(coder);
     };
@@ -29,21 +48,9 @@ function HallOfFrameViewModel() {
     };
 
     self.SortCoders = function () {
-        self.FamousCoders.sort(function (left, right) {
-            console.log(ko.utils.unwrapObservable(left));
-            if (left.score() == right.score()) {
-                return 0;
-            }
-            else {
-                if (left.score() < right.score()) {
-                    return -1;
-                }
-                else {
-                    return 1;
-                }
-            }
-        });
+        self.FamousCoders.sort(CompareCoder);
     };
+
 }
 
 
