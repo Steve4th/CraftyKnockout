@@ -20,6 +20,7 @@
 
                 <div class="list-group" data-bind="foreach: FamousCoders">
 
+                    <!-- note the use of multiple bindings. The CSS binding allows the application of css class. The style binding could have been used. -->
                     <a href="#" class="list-group-item" data-bind="click: $root.EditCoder, css:{ 'active': isSelected }">
 
                         <span class="badge" data-bind="text: fameScore"></span>
@@ -80,7 +81,6 @@
 </div>
 
 <div class="notes">
-    notes on observable arrays and templating
     An observableArray tracks which objects are in the array, not the state of those objects!
 </div>
 
