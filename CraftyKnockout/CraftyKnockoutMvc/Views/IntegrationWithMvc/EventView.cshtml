@@ -4,14 +4,36 @@
     ViewBag.Title = "EventView";
 }
 
-<h2>EventView</h2>
+<div class="alert alert-success">Your event <b>@Html.DisplayFor(m => m.Event.EventName)</b> has been submitted.</div>
 
-<div>
-    <h4>KnockoutIslandModel</h4>
-	<hr />
-    <dl class="dl-horizontal">
-    </dl>
+<blockquote>
+    <p>What: <strong>@Html.DisplayFor(m => m.Event.EventName)</strong></p>
+    <p>When: <strong>@Html.DisplayFor(m => m.Event.DateOfEvent)</strong></p>
+    <p>Where: <strong>@Html.DisplayFor(m => m.Event.Location)</strong></p>
+</blockquote>
+
+<div class="list-group">
+    @if (Model.Event.Speakers == null || Model.Event.Speakers.Count == 0)
+    {
+        <p class="alert alert-danger"><strong>Warning!</strong> No sessions have been selected for this event, your attendees will have to fend for themselves</p>
+    }
+    else
+    { 
+        foreach (var speaker in Model.Event.Speakers)
+        {
+            <div class="list-group-item">
+                <div class="list-group-item-heading">
+                    <span class="badge">Session No.@Html.DisplayFor(m => speaker.Id)</span>
+                    <b>@Html.DisplayFor(m => speaker.CoderName)</b> - @Html.DisplayFor(m => speaker.FamousFor)
+                </div>
+                <div class="list-group-item-text">
+
+                </div>
+            </div>
+        }
+    }
 </div>
+
 <p>
-    @Html.ActionLink("Edit Event", "KnockoutIsland", new { id = Model.Event.EventId }, new { @class="btn btn-default" }) |
+    @Html.ActionLink("Edit Event", "KnockoutIsland", new { id = Model.Event.EventId }, new { @class = "btn btn-default" })
 </p>

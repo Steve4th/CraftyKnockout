@@ -110,9 +110,12 @@ namespace CraftyKnockoutMvc.Controllers
         [HttpPost]
         public ActionResult KnockoutIsland(KnockoutIslandModel model)
         {
-            foreach (var speaker in model.Event.Speakers)
+            if (model.Event.Speakers != null)
             {
-                Debug.WriteLine("CoderName: {0}; Session Name: {1}; ", speaker.CoderName, speaker.FamousFor);
+                foreach (var speaker in model.Event.Speakers)
+                {
+                    Debug.WriteLine("CoderName: {0}; Session Name: {1}; ", speaker.CoderName, speaker.FamousFor);
+                }
             }
 
             return View("EventView", model);
