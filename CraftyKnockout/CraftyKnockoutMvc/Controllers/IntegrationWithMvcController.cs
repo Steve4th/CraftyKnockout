@@ -50,18 +50,24 @@ namespace CraftyKnockoutMvc.Controllers
         [HttpGet]
         public JsonResult HallOfFameAjaxModel()
         {
+
+            //For illustration I want to slow the data return down a bit.
+            System.Threading.Thread.Sleep(2000);
+
+
             var model = new HallOfFameModel();
 
-            var listOfFamousCoders = famousCoderRepository.GetAll();
+            var listOfFamousCoders = famousCoderRepository.GetAll().OrderBy(m => m.FameScore * -1);
 
             foreach (var coder in listOfFamousCoders)
             {
                 model.FamousCoders.Add(coder);
             }
 
-            //return model.JsonSerialize();
+            // Use Newtonsoft to encode the class as a JSON. 
             var jsonEncodedModel = Newtonsoft.Json.JsonConvert.SerializeObject(model);
 
+            //Return a JsonResult. You must included the behavior or else it does not get back to the client
             return Json(jsonEncodedModel, JsonRequestBehavior.AllowGet);
         }
 
