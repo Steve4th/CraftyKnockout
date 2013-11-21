@@ -18,7 +18,7 @@ namespace CraftyKnockoutMvc.Models
         public string Location { get; set; }
 
         [Display(Name = "Date of Event")]
-        [DisplayFormat(DataFormatString="{0:dd MMM yyyy}", ApplyFormatInEditMode=true)]
+        [DisplayFormat(DataFormatString="{0:D}", ApplyFormatInEditMode=true)]
         public DateTime? DateOfEvent { get; set; }
 
         public IList<FamousCoder> Speakers { get; set; }
