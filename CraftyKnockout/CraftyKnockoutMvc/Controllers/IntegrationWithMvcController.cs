@@ -100,7 +100,8 @@ namespace CraftyKnockoutMvc.Controllers
         public ActionResult KnockoutIsland()
         {
             var model = new KnockoutIslandModel();
-
+            model.Event = new Event();
+            model.Event.Speakers = new List<FamousCoder>();
             model.PossibleSpeakers = famousCoderRepository.GetAll().AsEnumerable();
 
             return View(model);
