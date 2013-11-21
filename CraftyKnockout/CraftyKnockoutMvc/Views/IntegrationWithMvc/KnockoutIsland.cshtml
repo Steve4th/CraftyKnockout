@@ -48,67 +48,67 @@
                     @Html.TextBoxFor(m => m.Event.DateOfEvent, new { @class = "form-control", type = "date" })
                 </div>
             </div>
+            <p>&nbsp;</p>
 
             <!-- Add JSON containing the Model-->
             @Html.Hidden("eventModelJson", @Html.Raw(Json.Encode(Model)))
 
             <!-- This is where we want the KO Island to be-->
-            <div class="panel">
+            <div class="panel panel-success">
                 <div class="panel-heading">
-                    <span data-bind="text: EventModel.Event.EventName"></span> Event Speakers.
+                    Event Speakers. <span data-bind="text: EventModel.Event.Speakers().length + ' sessions selected'"></span> 
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-8">
-                            selected speakers
-                            <div class="list-group" data-bind="template: { name: 'SpeakerRowTemplate', foreach: EventModel.Event.Speakers }"></div>
-                        </div>
-                        <div class="col-md-4">
-                            possible speakers
-                            <div class="list-group" data-bind="template: { name: 'PossibleSpeakerRowTemplate', foreach: EventModel.PossibleSpeakers }"></div>
-                        </div>
-                    </div>
+                    <div class="list-group" data-bind="template: { name: 'SpeakerRowTemplate', foreach: EventModel.Event.Speakers }"></div>
+                </div>
+            </div>
 
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Submitted Sessions
+                </div>
+                <div class="panel-body">
+                        <div class="list-group" data-bind="template: { name: 'PossibleSpeakerRowTemplate', foreach: EventModel.PossibleSpeakers }"></div>
                 </div>
             </div>
 
         </div>
     </div>
-
 }
 
+<!-- Knockout Template for possible speakers -->
 <script type="text/html" id="PossibleSpeakerRowTemplate">
-    <a href="#">
-        <div class="list-group-item">
-            <b><span data-bind="text: CoderName"></span></b> speaking about <span data-bind="text: FamousFor"></span>
-            <br />
+    <div class="list-group-item">
+        <b><span data-bind="text: CoderName"></span></b> speaking about <span data-bind="text: FamousFor"></span>
+        <br />
+        <div class="rightalign">
             <div class="btn" data-bind="click: $root.AddSpeaker">
                 <span class="glyphicon glyphicon-plus-sign right"></span> Add speaker to event
             </div>
         </div>
-    </a>
+    </div>
 </script>
 
 
-<!-- Knockout Template -->
+<!-- Knockout Template for selected speakers-->
 <script type="text/html" id="SpeakerRowTemplate">
-    <a href="#">
+    <div class="list-group-item">
         <div class="list-group-item-heading">
             <span class="badge" data-bind="text: 'Session No.' + ($index() + 1)">session</span>
             <b><span data-bind="text: CoderName"></span></b> speaking about <span data-bind="text: FamousFor"></span>
         </div>
         <div class="list-group-item-text">
             @Html.TextBoxFor(m => m.Event.Speakers.FirstOrDefault().CoderName, new
-                                       {
-                                           data_bind = "value: CoderName, attr: { name: 'Event.Speakers[' + $index() +'].CoderName', id: 'Event_Speakers_' + $index() +'__CoderName' }",
-                                           @class = "form-control"
-                                       })
+                                    {
+                                        data_bind = "value: CoderName, attr: { name: 'Event.Speakers[' + $index() +'].CoderName', id: 'Event_Speakers_' + $index() +'__CoderName' }",
+                                        @class = "form-control"
+                                    })
 
             @Html.TextBoxFor(m => m.Event.Speakers.FirstOrDefault().FamousFor, new
-                                       {
-                                           data_bind = "value: FamousFor, attr: { name: 'Event.Speakers[' + $index() +'].FamousFor', id: 'Event_Speakers_' + $index() +'__FamousFor' }",
-                                           @class = "form-control",
-                                       })
+                                    {
+                                        data_bind = "value: FamousFor, attr: { name: 'Event.Speakers[' + $index() +'].FamousFor', id: 'Event_Speakers_' + $index() +'__FamousFor' }",
+                                        @class = "form-control",
+                                    })
 
             <div class="rightalign">
                 <div class="btn" data-bind="click: $root.RemoveSpeaker">
@@ -116,8 +116,7 @@
                 </div>
             </div>
         </div>
-    </a>
-
+    </div>
 </script>
 
 
