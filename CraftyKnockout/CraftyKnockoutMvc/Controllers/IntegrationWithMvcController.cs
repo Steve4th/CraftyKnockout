@@ -31,7 +31,7 @@ namespace CraftyKnockoutMvc.Controllers
         {
             var model = new HallOfFameModel();
 
-            var listOfFamousCoders = famousCoderRepository.GetAll();
+            var listOfFamousCoders = famousCoderRepository.GetAll().OrderBy(m => m.FameScore * -1);
 
             foreach (var coder in listOfFamousCoders)
             {

@@ -1,39 +1,61 @@
 ﻿//to create a new entity we end up duplicating the C# class - boo
-function CoderProfile() {
-    CoderName = ko.observable('');
-    FameScore = ko.observable(0);
-    FamousFor = ko.observable('');
+var CoderProfile = function () {
+    this.CoderName = ko.observable();
+    this.FameScore = ko.observable(0);
+    this.FamousFor = ko.observable();
+    this.isNew = ko.observable(true);
 };
 
 
 function EditableHallOfFrame(initialListOfCoders) {
-    vmself = this;
+    self = this;
 
-    vmself.FamousCoders = ko.mapping.fromJSON(initialListOfCoders);
+    self.FamousCoders = ko.mapping.fromJSON(initialListOfCoders);
 
-    vmself.FamousCoderCount = ko.computed(function () {
-        return vmself.FamousCoders().length;
+    self.AddCoder = function () {
+        var newCoder = new CoderProfile()
+                .CoderName('Enter Name Here')
+                .FamousFor('Enter claim to fame here')
+                .FameScore(0)
+                .isNew(true);
+
+        self.FamousCoders.push(newCoder);
+        console.log('Added Coder');
+    };
+    
+    self.FamousCoderCount = ko.computed(function () {
+        return self.FamousCoders().length;
     });
 
-    vmself.RemoveCoder = function (record) {
-        vmself.FamousCoders.remove(record);
-    };
+    self.NewCoderCount = ko.computed(function () {
+        var newCount = 0;
+        ko.utils.arrayForEach(self.FamousCoders, function (item) {
+            if (item.isNew()) { newCount++;}
+        })
+        console.log('NewCoderCount Called and found:' + newCount);
+        return newCount;
+    });
 
-    vmself.AddCoder = function () {
-        var newCoder = new CoderProfile();
-        vmself.FamousCoders.push(newCoder);
+    self.RemoveCoder = function (record) {
+        console.log('Removing Coder');
+        self.FamousCoders.remove(record);
     };
-
-    vmself.SaveIt = function () {
+    
+    self.SaveIt = function () {
         
+        //Do not just reference the array/model
+        //var jsPayLoad = self.FamousCoders();
+
         //// Use the ko.toJS to convert the array into POJO's. 
         //// This way when encoded by the postJson method the observable properties are also included,
-        var jsPayLoad = ko.toJS(vmself.FamousCoders());
+        var jsPayLoad = ko.toJS(self.FamousCoders());
+        
 
         //postback the model as JSON to the server
         ko.utils.postJson(location.href, { model: jsPayLoad });
     };
 }
+
 
 $(document).ready(function () {
     //get our list of coders in JSON form to use to seed the knockout observable array

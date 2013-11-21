@@ -7,21 +7,32 @@
 @Html.Hidden("initialCoderListJson", @Html.Raw(Json.Encode(Model)))
 
 <h2>Edit the Hall Of Fame</h2>
+<p>This example uses Knockout Utils to convert the view model to JSON and then post it back to the server.</p>
 
 <div class="panel panel-primary">
     <div class="panel-heading">
         @*<h3 class="panel-title">Crafty Coders Editable Hall of Fame</h3>*@
         <div class="rightalign" data-bind="visible: FamousCoderCount() > 0">
             We have <span data-bind="text: FamousCoderCount()">?</span> entries in the hall.
+            
         </div>
+        <div data-bind="visible: NewCoderCount">
+            You have added <span data-bind="text: NewCoderCount()">?</span> new entries to the hall
+        </div>
+
         <button type="button" class="btn btn-default" data-bind="click: AddCoder">
             <span class="glyphicon glyphicon-plus"></span> Add New Entry
+        </button>
+
+        <button type="button" class="btn btn-default" data-bind="click:SaveIt">
+            <span class="glyphicon glyphicon-floppy-disk"></span>
+            Save Updates
         </button>
     </div>
 
     <div class="panel-body">
 
-        <ul class="list-group" data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }"></ul>
+        <div class="list-group" data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }"></div>
 
         <!-- Knockout Template -->
         <!-- We have to use TextBoxFor because the EditorFor does not allow us to specify the HTML attributes-->
@@ -61,9 +72,8 @@
                 <div class="row">
                     <div class="col-md-12 rightalign">
                         <!-- NB. Use the $root to get to the root of the view model, without it the template will think the method is on the current record-->
-                        <div class="btn">
-                            <!-- data-bind="click: $root.RemoveCoder">-->
-                            <span class="glyphicon glyphicon-trash right"></span>
+                        <div class="btn" data-bind="click: RemoveCoder">
+                            <span class="glyphicon glyphicon-trash right"></span> Remove
                         </div>
                     </div>
                 </div>
@@ -73,10 +83,7 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-default" data-bind="click:SaveIt">
-    <span class="glyphicon glyphicon-floppy-disk"></span>
-    Save Updates
-</button>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/knockout")
