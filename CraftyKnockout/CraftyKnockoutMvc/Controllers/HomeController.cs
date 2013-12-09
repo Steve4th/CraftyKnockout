@@ -16,7 +16,7 @@ namespace CraftyKnockoutMvc.Controllers
         public ActionResult About()
         {
             ViewBag.Title = "About Crafty Knockout";
-            ViewBag.Message = "Crafty Knockout is an ASP.NET application created to facilitate a presentation about KnockuutJS";
+            ViewBag.Message = "Crafty Knockout is an ASP.NET application created to facilitate a presentation about KnockoutJS";
             ViewBag.Abstract = ApplicationAbstract;
 
             return View();
