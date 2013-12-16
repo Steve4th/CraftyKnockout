@@ -21,17 +21,18 @@
                 <div class="list-group" data-bind="foreach: FamousCoders">
 
                     <!-- note the use of multiple bindings. The CSS binding allows the application of css class. The style binding could have been used. -->
-                    <a href="#" class="list-group-item" data-bind="click: $root.EditCoder, css:{ 'active': isSelected }">
+                    <a href="#" class="list-group-item"
+                       data-bind="click: $root.EditCoder, css:{ 'active': isSelected }">
 
                         <span class="badge" data-bind="text: fameScore"></span>
                         <h4 class="list-group-item-heading" data-bind="text: coderName"></h4>
                         <p class="list-group-item-text" data-bind="text:famousFor"></p>
 
                         <p class="text-info">
-                        <small>
-                            <em>ko $index:<span data-bind="text:$index"></span></em> |
-                            <em>isSelected:<span data-bind="text: isSelected"></span></em>
-                        </small>
+                            <small>
+                                <em>ko $index:<span data-bind="text:$index"></span></em> |
+                                <em>isSelected:<span data-bind="text: isSelected"></span></em>
+                            </small>
                         </p>
 
                         <div class="rightalign">
@@ -71,7 +72,11 @@
                         <textarea class="form-control" data-bind="value: famousFor"></textarea>
                     </div>
 
+                    <div class="btn btn-sm btn-link" data-bind="click: $root.RemoveCoder">
+                        <span class="glyphicon glyphicon-trash right"></span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
