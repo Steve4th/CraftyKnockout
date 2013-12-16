@@ -43,15 +43,16 @@ function EditableHallOfFrame(initialListOfCoders) {
     
     self.SaveIt = function () {
         
-        //Do not just reference the array/model
-        //var jsPayLoad = self.FamousCoders();
+        // Do not just reference the array/model! 
+        // It will not include your observables because they are functions
+        console.log(JSON.stringify(self.FamousCoders()));
 
-        //// Use the ko.toJS to convert the array into POJO's. 
-        //// This way when encoded by the postJson method the observable properties are also included,
-        var jsPayLoad = ko.toJS(self.FamousCoders());
+        // Use the ko.toJS to convert the array into POJO's. 
+        // This way when encoded by the postJson method the observable properties are also included,
+        var jsPayLoad = ko.toJS(self.FamousCoders()); 
+        console.log(jsPayLoad);
         
-
-        //postback the model as JSON to the server
+        //post back the model as JSON to the server
         ko.utils.postJson(location.href, { model: jsPayLoad });
     };
 }

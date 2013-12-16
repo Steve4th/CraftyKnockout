@@ -14,7 +14,7 @@
         @*<h3 class="panel-title">Crafty Coders Editable Hall of Fame</h3>*@
         <div class="rightalign" data-bind="visible: FamousCoderCount() > 0">
             We have <span data-bind="text: FamousCoderCount()">?</span> entries in the hall.
-            
+
         </div>
         <div data-bind="visible: NewCoderCount">
             You have added <span data-bind="text: NewCoderCount()">?</span> new entries to the hall
@@ -82,7 +82,22 @@
     </div>
 </div>
 
-
+<div id="postbackNotes">
+    <p>
+        If you JSON.stringify(viewModel) you are reminded that observables are actually functions and that JSON does not contain functions,
+        so the observables are ignored by JSON serializers.
+    </p>
+    <p>
+        Knockout includes helper functions to facilitate transforming all of your observables and computed observables into normal
+        properties on a JavaScript object.
+    </p>
+    <p>
+        ko.toJS – this function creates a copy of the object that you pass to it with all observables and computed observables converted into normal properties that are set to the current value.
+    </p>
+    <p>
+        ko.toJSON – this function first does ko.toJS on your object and then converts that object to a JSON string representation that is suitable for transferring back to the server.
+    </p>
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/knockout")
