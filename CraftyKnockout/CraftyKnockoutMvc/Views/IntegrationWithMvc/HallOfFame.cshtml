@@ -19,18 +19,21 @@
 
     <div class="panel-body">
 
-        <ul class="list-group" data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }"></ul>
+        <ul class="list-group" 
+            data-bind="template: { name: 'coderrowtemplate', foreach: FamousCoders }">
 
+        </ul>
+        
         <!-- Knockout Template -->
         <script type="text/html" id="coderrowtemplate">
 
-            <a href="#" data-bind="css: {'list-group-item': true }">
+            <li href="#" data-bind="css: {'list-group-item': true }">
 
                 <span class="badge" data-bind="text: FameScore"></span>
                 <h4 class="list-group-item-heading" data-bind="text: CoderName"></h4>
                 <p>Is famous for <span class="list-group-item-text" data-bind="text:FamousFor"></span></p>
 
-            </a>
+            </li>
 
         </script>
 
